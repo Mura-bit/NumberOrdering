@@ -1,59 +1,55 @@
 
+nums = 3
+num1 = None
+num2 = None
+num3 = None
 
-
-orderNum = False
-
-while not orderNum:
-    num1 = input("Type here your first number: ")
-    if num1.isdigit() and int(num1) >= 0:
-        orderNum = True
+while nums > 0:
+    num = input("Type here your number: ")
+    if num.isdigit() and int(num) >= 0:
+        num = int(num)
+        if num1 is None:
+            num1 = num
+        elif num2 is None:
+            num2 = num
+        elif num3 is None:
+            num3 = num
+        nums -= 1
     else:
-        print("It is not a valid number!")
+        print("Please type only numbers")
+
+smallest = num1
+middle = num1
+largest = num1
+
+if num2 is not None:
+    if num2 < smallest:
+        smallest = num2
+
+if num3 is not None:
+    if num3 < smallest:
+        smallest = num3
+
+if num2 is not None:
+    if num2 > smallest and num2 < num3 or num3 is None:
+        middle = num2
+
+if num3 is not None:
+    if num3 > smallest:
+        middle = num3
+
+if num2 is not None:
+    if num2 > middle:
+        largest = num2
+
+if num3 is not None:
+    if num3 > largest:
+        largest = num3
+
+print("Numbers :", smallest, middle, largest)
 
 
-orderNum = False
-while not orderNum:
-    num2 = input ("Type here your second number: ")
-    if num2.isdigit() and int(num2) >= 0:
-        orderNum = True
-    else:
-        print ("Error: type here only valid number!")
-orderNum = False
-while not orderNum:
-    num3 = input("And the last number: ")
-    if num3.isdigit() and int(num3) >= 0:
-        orderNum = True
-    else:
-        print ("Error: because type here only number!")
-
-num1 = int(num1)
-num2 = int(num2)
-num3 = int(num3)
-
-if num1 <= num2:
-    if num1 <= num3: 
-        print (num1, end="")
-        if num2 <= num3:
-            print (num2, num3) 
-        else:
-            print (num3, num2)
-    else:
-        print (num3, end="") 
-        print (num1, num2)
-else:
-    if num2 <= num3:
-        print (num2, end="") 
-        if num1 <= num3:
-            print (num1, num3)
-        else:
-            print (num3, num1)
-    else:
-        print (num3, end="")
-        print (num2, num1)
-
-
-
-
+#/////////////////////////////////////////////////////
 
 # import random
 
@@ -90,4 +86,7 @@ else:
 #     if attempts == maxAttempts:
 #         print("Sorry, you've reached the maximum number of attempts.")
 #         print("The correct number was:", randomNum)
+
+
+
 
